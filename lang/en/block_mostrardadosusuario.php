@@ -1,0 +1,27 @@
+<?php
+$string['pluginname'] = 'User data';
+$string['meuprimeirobloco:addinstance'] = 'Add a new My First Block';
+$string['meuprimeirobloco:myaddinstance'] = 'Add a new My First Block to the My Moodle page';
+$string['description'] = 'Welcome to my first block!';
+$string['cpfenable'] = 'CPF is visible to user:';
+$string['emailenable'] = 'Email is visible to user:';
+$string['phoneenable'] = 'Phone is visible to user:';
+$string['lastloginenable'] = 'Last login is visible to user:';
+$string['addressenable'] = 'Address is visible to user:';
+$string['cityenable'] = 'City is visible to user:';
+$string['countryenable'] = 'Country is visible to user:';
+$string['timezoneenable'] = 'Time zone is visible to user:';
+$string['langenable'] = 'Language is visible to user:';
+$string['institutionenable'] = "Institution is visible to user:";
+$string['departmentenable'] = "Departmente is visible to user:";
+$string['displaynamecpfenable'] = 'National ID';
+$string['displaynameemailenable'] = 'Email';
+$string['displaynamephoneenable'] = 'Phone';
+$string['displaynamelastloginenable'] = 'Last login';
+$string['displaynameaddressenable'] = 'Address';
+$string['displaynamecityenable'] = 'City';
+$string['displaynamecountryenable'] = 'Country';
+$string['displaynametimezoneenable'] = 'Time zone';
+$string['displaynamelangenable'] = 'Language';
+$string['displaynameinstitutionenable'] = 'Institution';
+$string['displaynamedepartmentenable'] = 'Department';

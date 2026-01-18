@@ -1,0 +1,36 @@
+.block_mostrardadosusuario header{
+    figure, h5{
+        display: inline-block;
+        vertical-align: middle;  
+        margin: 0;
+        margin-bottom: 15px;
+    }
+}
+.items section{
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.displaynone{
+    display: none;
+}
+.fieldname-strong{
+    font-weight: bolder;
+}
+.eyeenabled-section{
+    display: flex;
+    justify-content: space-between;
+}
+.eyeenabled-divvalue{
+    display: inline;
+}
+.eyeenabled-input{
+    display: inline;
+    border-width: 0;
+    width: auto;             
+    field-sizing: content;
+}
+.eyeenabled-button{
+    border-width: 0;
+    padding: 0;
+    background: none;
+}

@@ -1,0 +1,27 @@
+<?php
+$string['pluginname'] = 'Dados do Usuário';
+$string['meuprimeirobloco:addinstance'] = 'Adicionar um novo Mostrar Dados Do usuario';
+$string['meuprimeirobloco:myaddinstance'] = 'Adicionar um novo Mostrar Dados Do usuario à página Minha Página';
+$string['description'] = 'Bem-vindo ao Mostrar Dados Do usuario!';
+$string['cpfenable'] = 'CPF aparece para o usuário:';
+$string['emailenable'] = 'E-mail aparece para o usuário:';
+$string['phoneenable'] = 'Telefone aparece para o usuário:';
+$string['lastloginenable'] = 'ùltimo Login aparece para o usuário:';
+$string['addressenable'] = 'Endereço aparece para o usuário:';
+$string['cityenable'] = 'Cidade aparece para o usuário:';
+$string['countryenable'] = 'País aparece para o usuário:';
+$string['timezoneenable'] = 'Fuso horário aparece para o usuário:';
+$string['langenable'] = 'Lingua aparece para o usuário:';
+$string['institutionenable'] = 'Nome da instuição aparece para o usuário:';
+$string['departmentenable'] = 'Nome do departamento aparece para o usuário:';
+$string['displaynamecpfenable'] = 'CPF';
+$string['displaynameemailenable'] = 'E-mail';
+$string['displaynamephoneenable'] = 'Telefone';
+$string['displaynamelastloginenable'] = 'Último Login';
+$string['displaynameaddressenable'] = 'Endereço';
+$string['displaynamecityenable'] = 'Cidade';
+$string['displaynamecountryenable'] = 'País';
+$string['displaynametimezoneenable'] = 'Fuso horário';
+$string['displaynamelangenable'] = 'Lingua';
+$string['displaynameinstitutionenable'] = 'Instituição';
+$string['displaynamedepartmentenable'] = 'Departamento';

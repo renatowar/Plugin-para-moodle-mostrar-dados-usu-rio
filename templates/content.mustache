@@ -1,0 +1,50 @@
+<div class="block_mostrardadosusuario" style="margin-top: -15px;">
+    <div class="p-3 mb-3 rounded-top text-center border border-bottom">
+        <div class="mb-2">
+            {{{photo}}}
+        </div>
+        <h5 class="m-0 font-weight-bold">{{fullname}}</h5>
+    </div>
+    <div class="items">
+        {{#items}}
+            {{^eyeenable}}
+                <section class="border rounded eyedisabled-section">
+                    <strong>{{fieldname}}: </strong>
+                    {{#breakline}}</br>{{/breakline}}
+                    <span>{{value}}</span>
+                </section>
+            {{/eyeenable}}
+            {{#eyeenable}}
+                <section class="border rounded eyeenabled-section">
+                    <div class="eyeenabled-divvalue">
+                        <label class="fieldname-strong">{{fieldname}}: </label>
+                        <input type="password" value={{value}} class="eyeenabled-input" readonly>
+                    </div>
+                    <button class="eyeenabled-button">
+                        <img class="eyeopen displaynone" src={{{eyeopen}}} width=23>
+                        <img class="eyeclosed" src={{{eyeclosed}}} width=23>
+                    </button>
+                </section>
+            {{/eyeenable}}
+        {{/items}}
+    </div>
+</div>
+<script>
+    const buttonseye = document.querySelectorAll(".eyeenabled-button")
+    buttonseye.forEach((button)=>{
+        button.addEventListener("click",()=>{
+            var inputeye =  button.closest("section").querySelector("input")
+            var eyeopen = button.closest("section").querySelector(".eyeopen")
+            var eyeclosed = button.closest("section").querySelector(".eyeclosed")
+            if(inputeye.type == "text"){
+                inputeye.type = "password"
+                eyeopen.classList.add("displaynone")
+                eyeclosed.classList.remove("displaynone")
+            }else{
+                inputeye.type = "text"
+                eyeopen.classList.remove("displaynone")
+                eyeclosed.classList.add("displaynone")
+            }
+        })
+    })
+</script>
