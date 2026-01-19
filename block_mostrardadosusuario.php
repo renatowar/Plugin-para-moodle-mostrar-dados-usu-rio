@@ -20,17 +20,9 @@ class block_mostrardadosusuario extends block_base {
 
         $data = new stdClass();
         $dataitems = [
-            "cpfenable"=>[
-                "source"=>"profile_field_cpfusuario",
-                "eyeenable"=>true
-            ],
             "emailenable"=>[
                 "source"=>"email",
                 "eyeenable"=>true
-            ],
-            "phoneenable"=>[
-                "source"=>"profile_field_telefoneusuario",
-                "eyeenable"=>false
             ],
             "lastloginenable"=>[
                 "source"=>"lastlogin",
@@ -89,6 +81,7 @@ class block_mostrardadosusuario extends block_base {
 
             if(empty($dataitems[$conf])){continue;}
             if(!boolval($enabled)){continue;}
+
             $source = $dataitems[$conf]["source"];
             $item->fieldname = get_string("displayname".$conf,"block_mostrardadosusuario");
             $item->eyeenable = $dataitems[$conf]["eyeenable"];
@@ -109,6 +102,26 @@ class block_mostrardadosusuario extends block_base {
 
             $item->value = $value;
 
+            $data->items[] = $item;
+        }
+
+        $extrafields = $config->extrafields;
+        $fields = explode(",",$extrafields);
+        for($n = 1; $n <= count($fields) ; $n++){
+            
+            if($n % 3 != 0){continue;}
+            if(trim($fields[$n - 1]) == "true"){
+                $fields[$n - 1] = true;
+            }
+            if(trim($fields[$n - 1]) == "false"){
+                $fields[$n - 1] = false;
+            }
+            $item = new stdClass();;
+            $source = "profile_field_".trim($fields[$n - 3]);
+            $item->value = $USER->$source;
+            $item->fieldname = trim($fields[$n - 2]);
+            $item->eyeenable = $fields[$n - 1];
+            $item->breakline = false;
             $data->items[] = $item;
         }
         $data->mydatajson = json_encode($data);
