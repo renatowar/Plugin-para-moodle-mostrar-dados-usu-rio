@@ -1,5 +1,5 @@
 <?php
-class block_mostrardadosusuario extends block_base {
+class block_displaydatauser extends block_base {
     public function init(){
         $this->title = "";
     }
@@ -60,10 +60,10 @@ class block_mostrardadosusuario extends block_base {
         
         $data->fullname = fullname($USER);
         $data->photo = $OUTPUT->user_picture($USER, array("size" => 50));
-        $data->eyeopen = $OUTPUT->image_url("olhoaberto","block_mostrardadosusuario");
-        $data->eyeclosed = $OUTPUT->image_url("olhofechado","block_mostrardadosusuario");
+        $data->eyeopen = $OUTPUT->image_url("eyeopen","block_displaydatauser");
+        $data->eyeclosed = $OUTPUT->image_url("eyeclosed","block_displaydatauser");
         
-        $config = get_config("block_mostrardadosusuario");
+        $config = get_config("block_displaydatauser");
         /*
             Estrutura de dados
             ""[
@@ -83,7 +83,7 @@ class block_mostrardadosusuario extends block_base {
             if(!boolval($enabled)){continue;}
 
             $source = $dataitems[$conf]["source"];
-            $item->fieldname = get_string("displayname".$conf,"block_mostrardadosusuario");
+            $item->fieldname = get_string("displayname".$conf,"block_displaydatauser");
             $item->eyeenable = $dataitems[$conf]["eyeenable"];
 
             if($conf == "lastloginenable"){
@@ -127,7 +127,7 @@ class block_mostrardadosusuario extends block_base {
         $data->mydatajson = json_encode($data);
         
         $this->content = new stdClass();
-        $this->content->text = $OUTPUT->render_from_template('block_mostrardadosusuario/content',$data);
+        $this->content->text = $OUTPUT->render_from_template('block_displaydatauser/content',$data);
         
         return $this->content;
     }

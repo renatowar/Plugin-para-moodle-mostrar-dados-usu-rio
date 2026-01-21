@@ -26,9 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-    // 1. Permite adicionar o bloco no "Painel" (Dashboard) do usuário
-    // É essa que está causando o erro que você viu.
-    'block/mostrardadosusuario:myaddinstance' => array(
+    'block/displaydatauser:myaddinstance' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -37,8 +35,7 @@ $capabilities = array(
         'clonepermissionsfrom' => 'moodle/my:manageblocks'
     ),
 
-    // 2. Permite adicionar o bloco em cursos ou na página inicial
-    'block/mostrardadosusuario:addinstance' => array(
+    'block/displaydatauser:addinstance' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => array(
