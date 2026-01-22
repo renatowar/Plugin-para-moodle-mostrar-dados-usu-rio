@@ -57,28 +57,17 @@ class block_displaydatauser extends block_base {
                 "eyeenable"=>false
             ],
         ];
-        
+
         $data->fullname = fullname($USER);
         $data->photo = $OUTPUT->user_picture($USER, array("size" => 50));
         $data->eyeopen = $OUTPUT->image_url("eyeopen","block_displaydatauser");
         $data->eyeclosed = $OUTPUT->image_url("eyeclosed","block_displaydatauser");
-        
+
         $config = get_config("block_displaydatauser");
-        /*
-            Estrutura de dados
-            ""[
-                ""=>[
-                    "fieldname"=>"Telefone",
-                    "value"=>"(21) 999999999",
-                    "eyeenable"=>true,
-                    "breakline"=true
-                ]
-            ]
-        */
+        
         $data->items = array();
         foreach($config as $conf => $enabled) {
             $item = new stdClass();
-
             if(empty($dataitems[$conf])){continue;}
             if(!boolval($enabled)){continue;}
 
@@ -101,34 +90,53 @@ class block_displaydatauser extends block_base {
             }
 
             $item->value = $value;
-
+            $item->color = "#ffffff";
             $data->items[] = $item;
         }
 
         $extrafields = $config->extrafields;
-        $fields = explode(",",$extrafields);
-        for($n = 1; $n <= count($fields) ; $n++){
-            
-            if($n % 3 != 0){continue;}
-            if(trim($fields[$n - 1]) == "true"){
-                $fields[$n - 1] = true;
+        $fields = explode(";",$extrafields);
+        foreach($fields as $field){ 
+            if(trim($field) == ""){
+                continue;
             }
-            if(trim($fields[$n - 1]) == "false"){
-                $fields[$n - 1] = false;
-            }
-            $item = new stdClass();;
-            $source = "profile_field_".trim($fields[$n - 3]);
+            $field = explode(",",$field);
+            $item = new stdClass();
+
+            $source = "profile_field_".trim($field[0]);
             $item->value = $USER->$source;
-            $item->fieldname = trim($fields[$n - 2]);
-            $item->eyeenable = $fields[$n - 1];
+            $item->fieldname = trim($field[1]);
             $item->breakline = false;
+
+            $color = array_reduce($field,function($n, $d){
+                if(substr_count($d,"#")){return trim($d);}
+                return "";
+            });
+            if($color != ""){
+                $item->color = $color;
+            }else{
+                $item->color = "#ffffff";
+            }
+
+            $bool = array_reduce($field,function($n, $d){
+                if(trim($d) == "true"){
+                    return true;
+                }
+                if(trim($d) == "false"){
+                    return false;
+                }
+                return $n;
+            });
+
+            $item->eyeenable = $bool;
+
             $data->items[] = $item;
         }
         $data->mydatajson = json_encode($data);
-        
+
         $this->content = new stdClass();
         $this->content->text = $OUTPUT->render_from_template('block_displaydatauser/content',$data);
-        
+
         return $this->content;
     }
 }

@@ -90,10 +90,6 @@ if ($hassiteconfig) {
             get_string("extra","block_displaydatauser"),
             ''
         ));
-        /*
-            "fieldname"=>"Telefone",
-            "eyeenable"=>true,
-        */
         $settings->add( new admin_setting_configtextarea_validada(
             "block_displaydatauser/extrafields",
             get_string("extra","block_displaydatauser"),

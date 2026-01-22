@@ -8,17 +8,17 @@
     <div class="items">
         {{#items}}
             {{^eyeenable}}
-                <section class="border rounded eyedisabled-section">
+                <section class="border rounded eyedisabled-section" style="background-color:{{color}};">
                     <strong>{{fieldname}}: </strong>
                     {{#breakline}}</br>{{/breakline}}
-                    <span>{{value}}</span>
+                    <span style="background-color:{{color}};">{{value}}</span>
                 </section>
             {{/eyeenable}}
             {{#eyeenable}}
-                <section class="border rounded eyeenabled-section">
-                    <div class="eyeenabled-divvalue">
+                <section class="border rounded eyeenabled-section" style="background-color:{{color}};">
+                    <div class="eyeenabled-divvalue" style="background-color:{{color}};">
                         <label class="fieldname-strong">{{fieldname}}: </label>
-                        <input type="password" value={{value}} class="eyeenabled-input" readonly>
+                        <input type="password" value="{{value}}" class="eyeenabled-input" readonly style="background-color:{{color}};">
                     </div>
                     <button class="eyeenabled-button">
                         <img class="eyeopen displaynone" src={{{eyeopen}}} width=23>
